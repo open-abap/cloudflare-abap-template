@@ -1,0 +1,15 @@
+CLASS zcl_index DEFINITION PUBLIC.
+
+  PUBLIC SECTION.
+    METHODS:
+      run.
+
+ENDCLASS.
+
+CLASS zcl_index IMPLEMENTATION.
+
+  METHOD run.
+    WRITE 'hello world from ABAP'.
+  ENDMETHOD.
+
+ENDCLASS.

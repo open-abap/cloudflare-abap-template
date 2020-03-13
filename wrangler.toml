@@ -1,5 +1,5 @@
 name = "helloworld_abap"
-type = "abap"
+type = "javascript"
 
 account_id = ""
 workers_dev = true
