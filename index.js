@@ -1,4 +1,3 @@
-const runtime = require("@abaplint/runtime");
 const abap = require("./src/zcl_index.clas.abap");
 
 addEventListener('fetch', event => {
@@ -6,9 +5,15 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-  new abap.zcl_index().run();
-  const result = runtime.Console.get();
-  return new Response(result, {
-    headers: { 'content-type': 'text/plain' },
-  });
+  const response = new abap.zcl_index().run({
+    method: request.method,
+    path: request.url,
+    query: ''});
+
+  const headers = {};
+  for (const h of response.get().headers.array()) {
+    headers[h.get().field.get()] = h.get().value.get();
+  }
+
+  return new Response(response.get().body.get(), {headers});
 }
