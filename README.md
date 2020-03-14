@@ -1,16 +1,15 @@
 # cloudflare-abap-template
 Cloudflare worker ABAP template
 
-## Running
+## Running Template
 `npm install`
-
-`npm run bulid`
 
 `wrangler preview`
 
-wrangler build will be changed to webpack type sometime soon, currently it does not work as it should
+## Prerequsites
+`npm i @cloudflare/wrangler -g`
 
-## Notes
-Prereq: `npm i @cloudflare/wrangler -g`
+Rust/Cargo installed
 
+## Usage
 `wrangler generate projectname https://github.com/open-abap/cloudflare-abap-template`
