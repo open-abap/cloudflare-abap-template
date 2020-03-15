@@ -14,6 +14,9 @@ CLASS zcl_index DEFINITION PUBLIC.
            END OF ty_http.
 
     METHODS:
+      logic
+        RETURNING
+          VALUE(rv_text) TYPE string,
       run
         IMPORTING
           method      TYPE string OPTIONAL
@@ -29,7 +32,7 @@ ENDCLASS.
 
 CLASS zcl_index IMPLEMENTATION.
 
-  METHOD run.
+  METHOD logic.
 
     DATA: lv_text    TYPE string,
           lv_string  TYPE string,
@@ -61,9 +64,11 @@ CLASS zcl_index IMPLEMENTATION.
 
     ENDLOOP.
 
-*****************
+    rv_text = lv_text.
+  ENDMETHOD.
 
-    response-body = |hello world { method } { path } { query }\n{ lv_text }|.
+  METHOD run.
+    response-body = |hello world { method } { path } { query }\n{ logic( ) }|.
 
     DATA ls_header TYPE ty_header.
     ls_header-field = 'content-type'.
