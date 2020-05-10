@@ -16,7 +16,7 @@ module.exports = {
         test: /\.abap$/,
         use: [
           {
-            loader: path.resolve('abap_loader.js')
+            loader: "@abaplint/abap-loader"
           }
         ]
       }
