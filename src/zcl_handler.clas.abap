@@ -1,32 +1,13 @@
 CLASS zcl_handler DEFINITION PUBLIC.
 
   PUBLIC SECTION.
-    TYPES: BEGIN OF ty_header,
-             field TYPE string,
-             value TYPE string,
-           END OF ty_header.
+    INTERFACES zif_abap_serverless_v1.
 
-    TYPES ty_headers TYPE STANDARD TABLE OF ty_header WITH DEFAULT KEY.
-
-    TYPES: BEGIN OF ty_http,
-             headers TYPE ty_headers,
-             body    TYPE string,
-           END OF ty_http.
-
+  PRIVATE SECTION.
     METHODS:
       logic
         RETURNING
-          VALUE(rv_text) TYPE string,
-      run
-        IMPORTING
-          method      TYPE string OPTIONAL
-          path        TYPE string OPTIONAL
-          query       TYPE string OPTIONAL
-          request     TYPE ty_http OPTIONAL
-        RETURNING
-          VALUE(response) TYPE ty_http
-        RAISING
-          cx_static_check.
+          VALUE(rv_text) TYPE string.
 
 ENDCLASS.
 
@@ -67,10 +48,10 @@ CLASS zcl_handler IMPLEMENTATION.
     rv_text = lv_text.
   ENDMETHOD.
 
-  METHOD run.
+  METHOD zif_abap_serverless_v1~run.
     response-body = |hello world { method } { path } { query }\n{ logic( ) }|.
 
-    DATA ls_header TYPE ty_header.
+    DATA ls_header TYPE zif_abap_serverless_v1~ty_header.
     ls_header-field = 'content-type'.
     ls_header-value = 'text/plain'.
     APPEND ls_header TO response-headers.

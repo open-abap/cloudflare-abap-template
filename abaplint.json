@@ -13,6 +13,7 @@
     "indentation": true,
     "keyword_case": true,
     "when_others_last": true,
+    "implement_methods": true,
     "avoid_use": {
       "define": true,
       "execSQL": true,
