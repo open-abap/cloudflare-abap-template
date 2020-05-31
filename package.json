@@ -10,7 +10,7 @@
   "author": "open-abap",
   "license": "MIT",
   "devDependencies": {
-    "@abaplint/abap-loader": "^0.4.11",
+    "@abaplint/abap-loader": "^0.4.12",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
