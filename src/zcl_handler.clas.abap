@@ -1,4 +1,4 @@
-CLASS zcl_index DEFINITION PUBLIC.
+CLASS zcl_handler DEFINITION PUBLIC.
 
   PUBLIC SECTION.
     TYPES: BEGIN OF ty_header,
@@ -30,7 +30,7 @@ CLASS zcl_index DEFINITION PUBLIC.
 
 ENDCLASS.
 
-CLASS zcl_index IMPLEMENTATION.
+CLASS zcl_handler IMPLEMENTATION.
 
   METHOD logic.
 

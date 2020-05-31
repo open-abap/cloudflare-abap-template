@@ -12,4 +12,5 @@ Cloudflare worker ABAP template
 Rust/Cargo installed
 
 ## Usage
+Create new projects using this template,
 `wrangler generate projectname https://github.com/open-abap/cloudflare-abap-template`

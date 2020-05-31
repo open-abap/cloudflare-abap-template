@@ -1,12 +1,12 @@
 global.abap = require('@abaplint/runtime');
-const index = require("./src/zcl_index.clas.abap");
+const handler = require("./src/zcl_handler.clas.abap");
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 });
 
 async function handleRequest(request) {
-  const response = new index.zcl_index().run({
+  const response = new handler.zcl_handler().run({
     method: request.method,
     path: request.url,
     query: ''});
