@@ -6,7 +6,7 @@ addEventListener('fetch', event => {
 });
 
 async function handleRequest(request) {
-  const response = new handler.zcl_handler().run({
+  const response = new handler.zcl_handler().zif_abap_serverless_v1$run({
     method: request.method,
     path: request.url,
     query: ''});
