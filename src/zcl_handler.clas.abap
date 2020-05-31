@@ -45,6 +45,10 @@ CLASS zcl_handler IMPLEMENTATION.
 
     ENDLOOP.
 
+    DATA lo_more TYPE REF TO zcl_more.
+    CREATE OBJECT lo_more.
+    lv_text = |{ lv_text } { lo_more->foobar( ) }|.
+
     rv_text = lv_text.
   ENDMETHOD.
 
